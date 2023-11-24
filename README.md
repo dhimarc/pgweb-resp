@@ -10,8 +10,19 @@ NIM: 22/493570/SV/20710
 
 Kelas: PGPB-A
 
-<img src="image/instagram.png" width="20"> [@dhimar.fdh](https://www.instagram.com/dhimar.fdh)
+>Nama produk 
+WARTAMAN: WARMINDO TRACKER SLEMAN
 
-<img src="image/linkedin.png" width="20"> [Dhimar Fadhilansyah Darojat](https://www.linkedin.com/in/dhimarfadhilansyah/)
+>Deskripsi produk
+WEB GIS yang dibuat dalam proyek kali ini menampilkan tema persebaran warmindo (warung makan indomie) yang terdapat pada Kabupaten Sleman, disertai dengan beberapa fitur dari WEB GIS seperti routing, measurement tool, geolocation, dan lain sebagainya.
 
-<img src="image/photo.jpg" width="120">
+>Komponen pembangun produk
+Leaflet.JS, Bootstrap, HTML, CSS
+
+>Sumber data
+Data pribadi
+
+>Tangkapan layar komponen penting produk
+<img src="img/111.png" width="120">
+<img src="img/3.png" width="120">
+<img src="img/5.png" width="120">
