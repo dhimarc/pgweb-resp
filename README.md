@@ -23,12 +23,15 @@ WEB GIS yang dibuat dalam proyek kali ini menampilkan tema persebaran warmindo (
 Leaflet.JS, Bootstrap, HTML, CSS
 
 >Sumber data
-Data pribadi
+<li>Data Pribadi</li>
+  <li>Shapefile Kabupaten Sleman (Ina Geoportal)</li>
+
 
 >Tangkapan layar komponen penting produk
-<img src="img/111.png" width="300">
-<img src="img/3.png" width="300">
-<img src="img/5.png" width="300">
-<img src="img/6.png" width="300">
+<img src="img/111.png" width="500">
+<img src="img/3.png" width="500">
+<img src="img/5.png" width="500">
+<img src="img/6.png" width="500">
+<img src="img/7.png" width="500">
 
 
