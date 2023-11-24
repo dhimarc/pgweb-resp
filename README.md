@@ -23,6 +23,7 @@ Leaflet.JS, Bootstrap, HTML, CSS
 Data pribadi
 
 >Tangkapan layar komponen penting produk
-<img src="img/111.png" width="120">
-<img src="img/3.png" width="120">
-<img src="img/5.png" width="120">
+<img src="img/111.png" width="300">
+<img src="img/3.png" width="300">
+<img src="img/5.png" width="300">
+<img src="img/6.png" width="300">
