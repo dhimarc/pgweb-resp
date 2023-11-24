@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BURJO SLEMAN</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Marker Cluster -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-markercluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="assets/plugins/leaflet-markercluster/MarkerCluster.Default.css" />
+    <!-- Routing -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-routing/leaflet-routing-machine.css" />
+    <!-- Search CSS Library -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-search/leaflet-search.css" />
+    <!-- Geolocation CSS Library for Plugin -->
+    <link rel="stylesheet"
+        href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css" />
+    <!-- Leaflet Mouse Position CSS Library -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-mouseposition/L.Control.MousePosition.css" />
+    <!-- Leaflet Measure CSS Library -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-measure/leaflet-measure.css" />
+    <!-- EasyPrint CSS Library -->
+    <link rel="stylesheet" href="assets/plugins/leaflet-easyprint/easyPrint.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    
+
+
+    <style>
+        html,
+        body,
+        #map {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+
+        .info h2 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+    </style>
+</head>
+
+<body>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class="fa-solid fa-bowl-food"></i> Persebaran Warmindo Kabupaten Sleman
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-database"></i> Data
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="index88.html">Informasi Lebih Lanjut</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-disabled="true" data-bs-toggle="modal" data-bs-target="#infomodal">
+                                <i class="fas fa-circle-info"></i> Info
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="infomodal" tabindex="-1" aria-labelledby="infomodallabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infomodallabel"> <i class="fa-solid fa-circle-info"></i> Info</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Nama : Dhimar Fadhilansyah</p>
+                    <p>NIM: 22/493570/SV/20710</p>
+                    <p>Kelas : PGWEB-A</p>
+                    <p>Sumber Data : <a href="https://www.ayoyogya.com/ngayogyakarta/pr-394256965/8-warmindo-banyak-pelanggan-di-jogja-enak-buat-nongkrong-juga">AYO JOGJA</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.js"
+        integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <div id="map"></div>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> 
+
+    <!-- Include your GeoJSON data -->
+    <script src="./data.js"></script>
+
+    <!-- Leaflet and Plugins -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="assets/plugins/leaflet-markercluster/leaflet.markercluster.js"></script>
+    <script src="assets/plugins/leaflet-markercluster/leaflet.markercluster-src.js"></script>
+    <script src="assets/plugins/leaflet-routing/leaflet-routing-machine.js"></script>
+    <script src="assets/plugins/leaflet-routing/leaflet-routing-machine.min.js"></script>
+    <script src="assets/plugins/leaflet-search/leaflet-search.js"></script>
+    <script
+        src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+    <script src="assets/plugins/leaflet-mouseposition/L.Control.MousePosition.js"></script>
+    <script src="assets/plugins/leaflet-measure/leaflet-measure.js"></script>
+    <script src="assets/plugins/leaflet-easyprint/leaflet.easyPrint.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map("map").setView([-7.7956, 110.3695], 10);
+
+        // Basemaps
+        var basemap1 = L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 19,
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+        );
+        basemap1.addTo(map);
+
+        // Point 
+
+        // Create a GeoJSON layer for polygon data
+        var wfsgeoserver1 = L.geoJson(null, {
+            style: function (feature) {
+                // Adjust this function to define styles based on your polygon properties
+                var value = feature.properties.jumlah; // Change this to your actual property name
+                return {
+                    fillColor: getColor(value),
+                    weight: 2,
+                    opacity: 1,
+                    color: "white",
+                    dashArray: "3",
+                    fillOpacity: 0.7,
+                };
+            },
+            onEachFeature: function (feature, layer) {
+                // Adjust the popup content based on your polygon properties
+                var content =
+                    "Kecamatan: " +
+                    feature.properties.kecamatan +
+                    "<br>" +
+                    "Jumlah Penduduk: " +
+                    feature.properties.jumlah +
+                    "<br>";
+
+                layer.bindPopup(content);
+            },
+        });
+
+        // Fetch GeoJSON data from geoserver.php
+        $.getJSON("acara10_2.php", function (data) {
+            wfsgeoserver1.addData(data);
+            wfsgeoserver1.addTo(map);
+            map.fitBounds(wfsgeoserver1.getBounds());
+        });
+
+        // Array of markers
+        var markersArray = [{
+                coordinates: [-7.766715, 110.37746],
+                options: {
+                    draggable: true
+                },
+                popupContent: "Gedung B DIVSIG UGM",
+            },
+            {
+                coordinates: [-7.743168, 110.350276],
+                options: {},
+                popupContent: "RS.Akademik UGM",
+            },
+        ];
+
+        // Buat layer grup untuk marker cluster
+var markers = L.markerClusterGroup();
+
+fetch('index.php')
+.then(response => response.json())
+    .then(data => {
+        data.forEach(function (marker) {
+            var markerLocation = [marker.latitude, marker.longitude];
+            var nama_warmindo = marker.nama_warmindo;
+            var foto_filename = marker.foto;
+
+            var foto_url = 'http://localhost/pgweb-res/database/img/' + foto_filename;
+            var imageElement = '<img src="' + foto_url + '" alt="Foto Warmindo" style="max-width: 100%;">';
+
+            var customIcon = L.icon({
+                iconUrl: 'restaurant.png',
+                iconSize: [30, 30],
+            });
+
+            var popupContent = nama_warmindo + "<br>" + imageElement;
+
+            // Tambahkan marker ke dalam layer grup
+            var customMarker = L.marker(markerLocation, { icon: customIcon }).bindPopup(popupContent);
+            markers.addLayer(customMarker);
+        });
+
+        // Tambahkan layer grup ke dalam peta
+        map.addLayer(markers);
+    });
+
+
+
+
+
+
+
+
+
+
+        // Title
+        var title = new L.Control();
+        title.onAdd = function (map) {
+            this._div = L.DomUtil.create("div", "info");
+            this.update();
+            return this._div;
+        };
+
+        // Watermark 
+        L.Control.Watermark = L.Control.extend({
+            onAdd: function (map) {
+                var container = L.DomUtil.create("div", "leaflet-control-watermark");
+                var img = L.DomUtil.create("img", "watermark-image");
+                img.src = "assets/img/logo/LOGO_SIG_BLUE.png";
+                img.style.width = "120px";
+                img.style.marginBottom = "60px";
+                container.appendChild(img);
+                return container;
+            },
+        });
+        L.control.watermark = function (opts) {
+            return new L.Control.Watermark(opts);
+        };
+
+        L.control.watermark({
+            position: "bottomleft"
+        }).addTo(map);
+
+        // Legend
+L.Control.Legend = L.Control.extend({
+    onAdd: function (map) {
+        var img = L.DomUtil.create("img", "legend-img"); // Added a class for styling
+        img.src = "assets/img/legend/legenda4.png";
+        img.style.width = "400px";
+        img.style.marginBottom = "60px"; // Adjust this value as needed
+        return img;
+    },
+});
+
+L.control.Legend = function (opts) {
+    return new L.Control.Legend(opts);
+};
+
+L.control.Legend({
+    position: "bottomleft"
+}).addTo(map);
+
+        // Basemaps
+        var basemap1 = L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 19,
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+        );
+
+        var basemap2 = L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+                attribution: 'Tiles &copy; Esri | <a href="DIVSIGUGM" target="_blank">DIVSIG UGM</a>',
+            }
+        );
+
+        var basemap3 = L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+                attribution: 'Tiles &copy; Esri | <a href="Lathan WebGIS" target="_blank">DIVSIG UGM</a>',
+            }
+        );
+
+        var basemap4 = L.tileLayer(
+            "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png", {
+                attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            }
+        );
+
+        basemap3.addTo(map);
+
+        var baseMaps = {
+            OpenStreetMap: basemap1,
+            "Esri World Street": basemap2,
+            "Esri Imagery": basemap3,
+            "Stadia Dark Mode": basemap4,
+        };
+
+        L.control.layers(baseMaps).addTo(map);
+
+        // Plugin Search
+        var searchControl = new L.Control.Search({
+            position: "topleft",
+            layer: wfsgeoserver1, // Nama variabel layer
+            propertyName: "kecamatan", // Field untuk pencarian
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+                map.setView(latlng, zoom);
+            },
+        });
+
+        searchControl
+            .on("search:locationfound", function (e) {
+                e.layer.setStyle({
+                    fillColor: "#ffff00",
+                    color: "#0000ff",
+                });
+            })
+            .on("search:collapse", function (e) {
+                wfsgeoserver1.eachLayer(function (layer) {
+                    wfsgeoserver1.resetStyle(layer);
+                });
+            });
+
+        map.addControl(searchControl);
+
+        // Plugin Geolocation
+        var locateControl = L.control
+            .locate({
+                position: "topleft",
+                drawCircle: true,
+                follow: true,
+                setView: true,
+                keepCurrentZoomLevel: false,
+                markerStyle: {
+                    weight: 1,
+                    opacity: 0.8,
+                    fillOpacity: 0.8,
+                },
+                circleStyle: {
+                    weight: 1,
+                    clickable: false,
+                },
+                icon: "fas fa-crosshairs",
+                metric: true,
+                strings: {
+                    title: "Click for Your Location",
+                    popup: "You're here. Accuracy {distance} {unit}",
+                    outsideMapBoundsMsg: "Not available",
+                },
+                locateOptions: {
+                    maxZoom: 16,
+                    watch: true,
+                    enableHighAccuracy: true,
+                    maximumAge: 10000,
+                    timeout: 10000,
+                },
+            })
+            .addTo(map);
+
+        // Plugin Mouse Position Coordinate
+        L.control
+            .mousePosition({
+                position: "bottomright",
+                separator: ",",
+                prefix: "Point Coodinate: ",
+            })
+            .addTo(map);
+
+        // Plugin Measurement Tool
+        var measureControl = new L.Control.Measure({
+            position: "topleft",
+            primaryLengthUnit: "meters",
+            secondaryLengthUnit: "kilometers",
+            primaryAreaUnit: "hectares",
+            secondaryAreaUnit: "sqmeters",
+            activeColor: "#FF0000",
+            completedColor: "#00FF00",
+        });
+    measureControl.addTo(map);
+
+      // Plugin EasyPrint
+    L.easyPrint({
+        title: "Print",
+    }).addTo(map);
+
+      // Plugin Routing
+    L.Routing.control({
+        waypoints: [
+        L.latLng(-7.774876989477508, 110.3746770621709),
+        L.latLng(-7.9101160692828, 110.3072698610262),
+        ],
+        routeWhileDragging: true,
+    }).addTo(map);
+
+
+    map.addLayer(markers);
+      // Function to determine the color based on the 'value' attribute
+      function getColor(value) {
+        return value > 75000
+          ? "#180606"
+          : value > 50000
+          ? "#691b1b"
+          : value > 10
+          ? "#b62f2f"
+          : "#b62f2f";
+      }
+
+    </script>
+</body>
+</html>
