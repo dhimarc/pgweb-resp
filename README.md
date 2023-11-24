@@ -1,8 +1,7 @@
 # pgweb-resp
 
 # LINK DEMO https://dhimarc.github.io/pgweb-resp/
-
-Perencanaan produk web GIS dan GIT
+(localhost tidak terhubung, menyebabkan poligon tidak tertampil di live demo)
 ___
 ***Test***
 >User identity
