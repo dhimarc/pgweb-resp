@@ -16,15 +16,17 @@ Kelas: PGPB-A
 >Nama produk 
 WARTAMAN: WARMINDO TRACKER SLEMAN
 
->Deskripsi produk
+>Deskripsi produk : 
+
 WEB GIS yang dibuat dalam proyek kali ini menampilkan tema persebaran warmindo (warung makan indomie) yang terdapat pada Kabupaten Sleman, disertai dengan beberapa fitur dari WEB GIS seperti routing, measurement tool, geolocation, dan lain sebagainya.
 
->Komponen pembangun produk
+>Komponen pembangun produk :
+
 Leaflet.JS, Bootstrap, HTML, CSS, GeoServer, PhpMyAdmin, Javascript
 
->Sumber data
-Data Pribadi
-Shapefile Kabupaten Sleman (Ina Geoportal)
+>Sumber data :
+
+Data Pribadi, Shapefile Kabupaten Sleman (Ina Geoportal)
 
 
 >Tangkapan layar komponen penting produk
