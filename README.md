@@ -22,11 +22,27 @@ WEB GIS yang dibuat dalam proyek kali ini menampilkan tema persebaran warmindo (
 
 >Komponen pembangun produk :
 
-Leaflet.JS, Bootstrap, HTML, CSS, GeoServer, PhpMyAdmin, Javascript
+Leaflet.JS
+
+Bootstrap
+
+HTML
+
+CSS
+
+GeoServer
+
+PhpMyAdmin 
+
+Javascript
+
+PHP
 
 >Sumber data :
 
-Data Pribadi, Shapefile Kabupaten Sleman (Ina Geoportal)
+Data Pribadi 
+
+Shapefile Kabupaten Sleman (Ina Geoportal)
 
 
 >Tangkapan layar komponen penting produk
